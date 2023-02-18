@@ -24,6 +24,6 @@ do
 	done
 done
 
-#python3 draw.py
+python3 draw.py
 
 echo "the end"
