@@ -4,7 +4,7 @@ cargo init
 echo "perfcnt = \"0.8.0\"" >> Cargo.toml
 
 declare -a counters=("CPUCycles" "Instructions" "BranchMisses")
-declare -a blocksizes=("8","16","32","64")
+declare -a blocksizes=("8" "16" "32" "64")
 for counter in "${counters[@]}"
 do
 	RESULT="./result_$counter"
