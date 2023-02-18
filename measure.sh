@@ -10,12 +10,12 @@ do
 	RESULT="./result_$counter"
 	> $RESULT
 	
-	for i in {1..40}
+	for i in {1..20}
 	do
-		blocknumber=$((i*256))
+		blocknumber=$((i*512))
 		for blocksize in "${blocksizes[@]}"
 		do
-			echo "$blocknumber $blocksize $counter" >> $RESULT
+			echo "$blocknumber $blocksize" >> $RESULT
 			python3 genere_code.py $blocknumber $blocksize $counter
 			cargo build --release
 			sudo ./target/release/fff67 >> $RESULT

@@ -1,17 +1,23 @@
 import matplotlib.pyplot as plt
 import re
 
+color_and_ys = {'8':('red',[]),'16':('blue',[]),'32':('orange',[]),'64':('green',[])}
+
 with open("result_BranchMisses", 'r') as branchmisses:
 	count = 0
+	current_block_size = 0
 
 	x = []
-	y = []
 	for line in branchmisses:
-		if count%12==0:
-			x.append(int(re.search(r'\d+', line).group()))
-		if count%12==1:
-			y.append(int(re.search(r'\d+', line).group()))
+		if count%2==0:
+			numbers = re.findall(r'\d+', line)
+			x.append(int(numbers[0]))
+			current_block_size=numbers[1]
+		if count%2==1:
+			color_and_ys[current_block_size][1].append(int(re.search(r'\d+', line).group()))
 		count+=1
 
-plt.scatter(x,y, c = 'red')
+for (color,y) in color_and_ys.values():
+	plt.scatter(x,y, c = color)
+
 plt.savefig("BranchMisses.svg")
