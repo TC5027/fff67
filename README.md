@@ -15,3 +15,5 @@ La suite c'est faire ça pour des apple M1 mais du coup mon code pour les perfor
 https://github.com/siedentop/macos-perf pourrait m'aider
 
 https://blog.cloudflare.com/branch-predictor/
+
+https://gist.github.com/ibireme/173517c208c7dc333ba962c1f0d67d12 et asm dans du c du coup
